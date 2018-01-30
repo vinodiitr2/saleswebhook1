@@ -19,7 +19,7 @@ server.post('/get-movie-details', function (req, res) {
 
         responseFromAPI.on('data', function (chunk) {
             //let movie = JSON.parse(chunk)['data'];
-            let dataToSend = 'I don\'t have the required info on that. Here\'s some info on \'The Godfather\' instead.\n' : '';
+            let dataToSend = 'I don\'t have the required info on that. Here\'s some info on';
             //dataToSend += movie.name + ' is a ' + movie.stars + ' starer ' + movie.genre + ' movie, released in ' + movie.year + '. It was directed by ' + movie.director;
             dataToSend += 'The GodFather';
             return res.json({
