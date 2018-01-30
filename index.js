@@ -11,23 +11,22 @@ server.use(bodyParser.urlencoded({
 
 server.use(bodyParser.json());
 
-server.post('/get-movie-details', function (req, res) {
+server.post('/get-sales-details', function (req, res) {
 
-    let movieToSearch = req.body.result && req.body.result.parameters && req.body.result.parameters.salesCategory ? req.body.result.parameters.salesCategory : 'The Godfather';
-    let reqUrl = encodeURI('http://openstates.org/api/v1/bills/?q=' + movieToSearch);
+    let salesDetails = req.body.result && req.body.result.parameters && req.body.result.parameters.salesCategory ? req.body.result.parameters.salesCategory : 'The Godfather';
+    let reqUrl = encodeURI('http://openstates.org/api/v1/bills/?q=' + salesDetails);
     http.get(reqUrl, (responseFromAPI) => {
 
         responseFromAPI.on('data', function (chunk) {
             //let movie = JSON.parse(chunk)['data'];
             console.log("No data------------------------*************");
             let dataToSend = 'I don\'t have the required info on that. Here\'s some info on';
-            //dataToSend += movie.name + ' is a ' + movie.stars + ' starer ' + movie.genre + ' movie, released in ' + movie.year + '. It was directed by ' + movie.director;
-            dataToSend += 'The GodFather';
+            dataToSend += 'The Sales info';
             console.log("No data  1------------------------*************" + dataToSend);
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
-                source: 'get-movie-details'
+                source: 'get-sales-details'
             });
 
         });
@@ -35,7 +34,7 @@ server.post('/get-movie-details', function (req, res) {
         return res.json({
             speech: 'Something went wrong!',
             displayText: 'Something went wrong!',
-            source: 'get-movie-details'
+            source: 'get-sales-details'
         });
     });
 });
