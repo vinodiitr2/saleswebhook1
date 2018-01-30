@@ -14,7 +14,7 @@ server.use(bodyParser.json());
 server.post('/get-movie-details', function (req, res) {
 
     let movieToSearch = req.body.result && req.body.result.parameters && req.body.result.parameters.salesCategory ? req.body.result.parameters.salesCategory : 'The Godfather';
-    let reqUrl = encodeURI('http://theapache64.xyz:8080/movie_db/search?keyword=' + movieToSearch);
+    let reqUrl = encodeURI('https://openstates.org/api/v1/bills/?q=' + movieToSearch);
     http.get(reqUrl, (responseFromAPI) => {
 
         responseFromAPI.on('data', function (chunk) {
