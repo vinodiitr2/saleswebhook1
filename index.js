@@ -23,7 +23,7 @@ server.post('/get-movie-details', function (req, res) {
             let dataToSend = 'I don\'t have the required info on that. Here\'s some info on';
             //dataToSend += movie.name + ' is a ' + movie.stars + ' starer ' + movie.genre + ' movie, released in ' + movie.year + '. It was directed by ' + movie.director;
             dataToSend += 'The GodFather';
-            console.log("No data  1------------------------*************");
+            console.log("No data  1------------------------*************" + dataToSend);
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
