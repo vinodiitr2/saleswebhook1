@@ -22,7 +22,7 @@ server.post('/get-sales-details', function (req, res) {
             console.log("No data------------------------*************");
             let dataToSend = 'I don\'t have the required info on that. Here\'s some info on';
             dataToSend += 'The Sales info';
-            console.log("No data  1------------------------*************" + dataToSend);
+            console.log("No data  1-------------------------*************" + dataToSend);
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
