@@ -15,7 +15,7 @@ password: 'Q3tech123',
 	options: {
 		port: 1433,
 		database: 'salesData',
-		instancename: 'SQLEXPRESS'
+		instancename: 'MSSQLSERVER'
 	}
 }
 
