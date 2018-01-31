@@ -24,8 +24,8 @@ server.post('/get-sales-details', function (req, res) {
             dataToSend += 'The Sales info';
             console.log("No data  1-------------------------*************" + dataToSend);
             return res.json({
-                speech: dataToSend,
-                displayText: dataToSend,
+                fulfillmentText: dataToSend,
+                fulfillmentMessages: dataToSend,
                 //source: 'get-sales-details'
             });
 
