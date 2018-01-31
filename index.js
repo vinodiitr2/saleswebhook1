@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const http = require('http');
 var sql = require('mssql');
 var webconfig = {
-server: '192.168.1.4', 
+server: '169.254.193.8', 
 //server: 'VINOD-LAPTOP',
 database: 'salesData',
 user: 'sa',
