@@ -29,7 +29,7 @@ server.use(bodyParser.json());
 
 server.post('/get-sales-details', function (req, res) {
 	sql.close();
-	var connection = new sql.connect(webconfig, function(err) {
+	var connection = new sql.connect("Data Source=192.168.1.4,1433;User Id=sa;Password=Q3tech123;Initial Catalog=salesData;Integrated Security=True", function(err) {
 	   if(err)      // ... error checks 
         console.log('Database connection error --- 1');
 var request = new sql.Request(connection); 
