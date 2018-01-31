@@ -7,12 +7,16 @@ var sql = require('mssql');
 var webconfig = {
 server: '169.254.193.8', 
 //server: 'VINOD-LAPTOP',
-database: 'salesData',
+//database: 'salesData',
 user: 'sa',
 password: 'Q3tech123',
 //user: 'Q3TECH\visingh',
 //password: 'plmokn@123',
-port: 1433
+	options: {
+		port: 1433,
+		database: 'salesData',
+		instancename: 'SQLEXPRESS'
+	}
 }
 
 
