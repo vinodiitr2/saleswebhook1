@@ -5,22 +5,16 @@ const bodyParser = require('body-parser');
 const http = require('http');
 var sql = require('mssql');
 var webconfig = {
+server: '192.168.1.4', 
+database: 'salesData',
 user: 'sa',
 password: 'Q3tech123',
-server: '192.168.1.4', 
-database: 'dbo',
-options: {
-    encrypt: false // Use this if you're on Windows Azure 
+//user: 'Q3TECH\visingh',
+//password: 'plmokn@123',
+port: 1433
 }
-}
-var connection = new sql.Connection(webconfig, function(err) {
-var request = new sql.Request(connection); 
-request.query('select * from Sheet1', function(err, recordset) {
-   if(err)      // ... error checks 
-        console.log('Database connection error');
-    console.log("User Data: "+recordset);
-});
-});
+
+
 const server = express();
 server.use(bodyParser.urlencoded({
     extended: true
@@ -29,6 +23,18 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 
 server.post('/get-sales-details', function (req, res) {
+	var connection = new sql.connect(webconfig, function(err) {
+	   if(err)      // ... error checks 
+        console.log('Database connection error --- 1');
+var request = new sql.Request(connection); 
+let query1 = "select distinct Amount  from dbo.sheet1 where Month=1 AND SellerName='AMS Party-LC' AND Year=2017;";
+request.query(query1, function(err1, recordset) {
+   if(err)      // ... error checks 
+        console.log('Database connection error');
+	else
+    console.dir("User Data: "+recordset[0].Amount);
+});
+});
 
     let salesDetails = req.body.result && req.body.result.parameters && req.body.result.parameters.salesCategory ? req.body.result.parameters.salesCategory : 'The Godfather';
     let reqUrl = encodeURI('http://openstates.org/api/v1/bills/?q=' + salesDetails);
