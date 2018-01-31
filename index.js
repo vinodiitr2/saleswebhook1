@@ -26,8 +26,8 @@ server.post('/get-sales-details', function (req, res) {
             var array = ["who","are","you"];
            
             return res.json({
-                fulfillmentText: dataToSend,
-                fulfillmentMessages: array,
+                speech: dataToSend,
+                displayText: dataToSend,
                 //source: 'get-sales-details'
             });
 
