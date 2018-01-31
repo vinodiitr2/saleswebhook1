@@ -23,9 +23,11 @@ server.post('/get-sales-details', function (req, res) {
             let dataToSend = 'I don\'t have the required info on that. Here\'s some info on';
             dataToSend += 'The Sales info';
             console.log("No data  1-------------------------*************" + dataToSend);
+            var array = ["who","are","you"];
+           
             return res.json({
                 fulfillmentText: dataToSend,
-                fulfillmentMessages: dataToSend,
+                fulfillmentMessages: arrray,
                 //source: 'get-sales-details'
             });
 
