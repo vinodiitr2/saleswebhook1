@@ -27,7 +27,7 @@ server.post('/get-sales-details', function (req, res) {
            
             return res.json({
                 fulfillmentText: dataToSend,
-                fulfillmentMessages: arrray,
+                fulfillmentMessages: array,
                 //source: 'get-sales-details'
             });
 
