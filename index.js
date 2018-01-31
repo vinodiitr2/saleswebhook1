@@ -26,7 +26,7 @@ server.post('/get-sales-details', function (req, res) {
             return res.json({
                 speech: dataToSend,
                 displayText: dataToSend,
-                source: 'get-sales-details'
+                //source: 'get-sales-details'
             });
 
         });
@@ -34,7 +34,7 @@ server.post('/get-sales-details', function (req, res) {
         return res.json({
             speech: 'Something went wrong!',
             displayText: 'Something went wrong!',
-            source: 'get-sales-details'
+            //source: 'get-sales-details'
         });
     });
 });
