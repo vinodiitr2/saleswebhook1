@@ -23,6 +23,7 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 
 server.post('/get-sales-details', function (req, res) {
+	sql.close();
 	var connection = new sql.connect(webconfig, function(err) {
 	   if(err)      // ... error checks 
         console.log('Database connection error --- 1');
