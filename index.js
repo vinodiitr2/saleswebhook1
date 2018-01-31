@@ -3,7 +3,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
-
+var sql = require('mssql');
+var webconfig = {
+user: 'sa',
+password: 'Q3tech123',
+server: '192.168.1.4', 
+database: 'dbo',
+options: {
+    encrypt: false // Use this if you're on Windows Azure 
+}
+}
+var connection = new sql.Connection(webconfig, function(err) {
+var request = new sql.Request(connection); 
+request.query('select * from Sheet1', function(err, recordset) {
+   if(err)      // ... error checks 
+        console.log('Database connection error');
+    console.log("User Data: "+recordset);
+});
+});
 const server = express();
 server.use(bodyParser.urlencoded({
     extended: true
